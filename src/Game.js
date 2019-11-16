@@ -1,3 +1,5 @@
+import { TurnOrder } from "boardgame.io/dist/cjs/reducer-346fc670";
+
 // Return true if `cells` is in a winning configuration.
 const IsVictory = (cells) => {
   return cells.filter(c => c === null).length === 1;
@@ -9,7 +11,16 @@ const IsDraw = (cells) => {
 }
 
 const Game = {
-  setup: () => ({ cells: Array(9).fill(null) }),
+  setup: () => ({ 
+    player: {
+      cards: [],
+      hp: 30,
+
+    },
+    turn: {
+      order: TurnOrder.DEFAULT
+    }
+  }),
 
   moves: {
     clickCell: (G, ctx, id) => {
