@@ -34,18 +34,85 @@ const cards = [
         }
     },
     {
-        name: '',
+        name: 'Trojan Horse',
         new: {
-            description: '',
-            effects: '',
-            effect: () => {}
+            description: 'Harmful software that disguises itself as normal file or program. A Trojan can cause major damage',
+            effects: 'Target takes increased damage',
+            effect: G => {
+                G[G.opponent].health -= 8 / G[G.opponent].shield
+                G[G.opponent].modifiers.push({
+                duration: 2,
+                attr: 'shield',
+                value: -0.3
+            })}
+            
         },
         old: {
-            description: '',
-            effects: '',
-            effect: () => {}
+            description: 'An attack disguised as a gift',
+            effects: 'Target takes increased damage',
+            effect: G => {
+                G[G.opponent].health -= 8 / G[G.opponent].shield
+                G[G.opponent].modifiers.push({
+                duration: 2,
+                attr: 'shield',
+                value: -0.15
+            })}
+        }
+    },
+    {
+        name: 'Worm',
+        new:{
+            description: 'Worm is a harmful program that is able to self-replicate and spread independently. Worms harm the infected computer by slowing connection to Internet. They can also steal data and delete files.',
+            effects: 'Decreases target`s shield for three turns',
+            effect: G => {
+                G[G.opponent].modifiers.push({
+                    duration: 3,
+                    attr: 'shield',
+                    value: -0.45
+                })
+            }
+        },
+        old:{
+            description: 'The attacker encourages criminal organizations to infiltrate his enemy’s kingdom causing loss of resources and damage.',
+            effects: 'Decreases target`s shield for three turns',
+            effect: G => {
+                G[G.opponent].modifiers.push({
+                    duration: 3,
+                    attr: 'shield',
+                    value: -0.45
+                })
+            }
+
+        }
+    },
+    {
+        name: 'Virus',
+        new:{
+            description: 'Virus is a harmful program that is capable of copying itself and spreading to other computers.',
+            effects: 'Decreases the infected computer’s HP. (Damage increases gradually) until the Virus is removed.',
+            effects: G => {
+                G[G.opponent].modifiers.push({
+                    duration: 2,
+                    attr: 'health',
+                    value: -2
+                })
+            }
+        },
+        old:{
+            description: 'Use biological means to weaken your opponent.',
+            effects: 'Decreases the infected computer’s HP. (Damage increases gradually) until the Virus is removed.',
+            effects: G => {
+                G[G.opponent].modifiers.push({
+                    duration: 2,
+                    attr: 'health',
+                    value: -2
+                })
+            }
+            
         }
     }
+
+
 ]
 
 export default cards
