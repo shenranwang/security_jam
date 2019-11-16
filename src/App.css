@@ -11,11 +11,10 @@
 }
 
 .Deck {
-    border: 3px solid #555;
     width: 1000px;
     height: 200px;
     line-height: 50px;
-    text-align: center;
+    text-align: center; 
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;

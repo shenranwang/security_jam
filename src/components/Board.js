@@ -6,7 +6,6 @@ const GameBoard = (props) => {
 
   return (
     <div>
-        <Deck cards = {cards}/>
         <Deck style={{ marginTop: '200px' }} cards = {cards}/>
     </div>
   )

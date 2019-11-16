@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
 
 const Card = (props) => {
+    const [mouseOver, setMouseOver] = useState(false)
     return (
-        <div onClick={() => props.special ? props.special(true) : {}} className='Card' key={props.id}>
+        <div 
+            onClick={() => props.special ? props.special(true) : {}}
+            style={mouseOver ? { transform: 'scale(1.5)' } : {} } 
+            className='Card'
+            key={props.id}
+            onMouseEnter={() => setMouseOver(true)}
+            onMouseLeave={() => setMouseOver(false)}
+            >
             <h3>{props.name}</h3>
-            <div>{props.description}</div>
+            { mouseOver ? <div style={{fontSize: '10px'}}>{props.description}</div> : null}
         </div>
     )
 }

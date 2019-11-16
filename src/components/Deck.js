@@ -9,11 +9,6 @@ const Deck = (props) => {
     }, [])
     const [nextCard, setNextCard] = useState(0)
 
-    /*const addCards = () => {
-        setActiveCards(activeCards.concat(props.cards.slice(nextCard, nextCard + 2)))
-        setNextCard(nextCard + 3)
-    }*/
-
     return (
         <div className='Deck' style={props.style}>
             {activeCards.map((card, i) => (
