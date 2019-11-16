@@ -1,6 +1,6 @@
 const cards = [
     {
-        name: 'ddos',
+        name: 'VirusNew',
         description: 'very dangerous'
     },
     {
