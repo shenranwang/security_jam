@@ -16,7 +16,7 @@ const Card = (props) => {
         <div className='cardWrapper'>
             
             <div 
-                onClick={() => props.special ? props.special(true) : {}}
+                onClick={onClick}
                 style={mouseOver ? { 
                     transform: 'translateY(-100px) scaleY(1.5) scaleX(1.5)',
                     zIndex: "3"
