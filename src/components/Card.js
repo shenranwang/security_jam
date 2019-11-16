@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = () => {
+const Card = (props) => {
     const cardStyle = {
         border: '3px solid #555',
         width: '66px',
