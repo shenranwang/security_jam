@@ -3,6 +3,20 @@ import Hand from './Hand';
 import cards from '../cards';
 
 const GameBoard = (props) => {
+  const switchTurn = (effect) => {
+    if(effect) effect(props.G)
+    props.events.endTurn()
+    const turn = props.G.turn
+    turn === 'player' ? props.G.turn = 'computer' : props.G.turn = 'player'
+    props.G.opponent = turn
+    const player = props.G[props.G.turn]
+    player.shield = 1.0
+    for(let mod of player.modifiers) {
+        player[mod.attr] += mod.value 
+        mod.duration--
+    }
+    player.modifiers = player.modifiers.filter(f => f.duration)
+}
 
   return (
     <div>
@@ -27,14 +41,14 @@ const GameBoard = (props) => {
           <div className='bottomBar'>
             <img className='healthJug' src="/images/health4.png"></img>
 
-            <Hand className='hand' cards = {cards}/>
+            <Hand mode={props.G.mode} onClick={switchTurn} className='hand' cards = {cards}/>
           </div>
 
         </div>
          
     </div>
   )
-  
+
 }
 
 export default GameBoard

@@ -8,6 +8,10 @@ import '../App.css';
 
 const Card = (props) => {
     const [mouseOver, setMouseOver] = useState(false)
+    const onClick = () => {
+        props.onClick(props.effect)
+        if(props.special) props.special(true)
+    }
     return (
         <div className='cardWrapper'>
             
@@ -30,7 +34,12 @@ const Card = (props) => {
                     <div className='imageBorder'></div>
                     <div className='text'>
                         <div className='header'>{props.name}</div>
-                        { mouseOver ? <div className='description'>{props.description}</div> : null}
+                        { mouseOver ? 
+                            <div>
+                                <div className='description'>{props.description}</div> 
+                                <div>{props.effects}</div>
+                            </div>
+                        : null}
                     </div>
                 </div>
                
