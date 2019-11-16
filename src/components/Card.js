@@ -4,7 +4,7 @@ import '../App.css';
 const Card = (props) => {
     const [mouseOver, setMouseOver] = useState(false)
     const onClick = () => {
-        props.onClick(props.name)
+        props.onClick(props.effect)
         if(props.special) props.special(true)
     }
     return (
@@ -17,7 +17,12 @@ const Card = (props) => {
             onMouseLeave={() => setMouseOver(false)}
             >
             <h3>{props.name}</h3>
-            { mouseOver ? <div style={{fontSize: '10px'}}>{props.description}</div> : null}
+            { mouseOver ? 
+                <div style={{fontSize: '10px'}}>
+                    <div>{props.description}</div>
+                    <h6>{props.effects}</h6>
+                </div>
+            : null}
         </div>
     )
 }
