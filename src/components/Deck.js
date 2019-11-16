@@ -1,26 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './Card';
 
-const Deck = ({cards}) => {
+const Deck = (props) => {
     const [activeCards, setActiveCards] = useState([])
+
+    useEffect(() => {
+        setActiveCards(props.cards)
+    }, [])
     const [nextCard, setNextCard] = useState(0)
-    const deckStyle = {
-        border: '3px solid #555',
-        width: '66px',
-        height: '100px',
-        lineHeight: '50px',
-        textAlign: 'center',
-    }
 
-    const addCards = () => {
-        setActiveCards(activeCards.concat(cards.slice(nextCard, nextCard + 2)))
+    /*const addCards = () => {
+        setActiveCards(activeCards.concat(props.cards.slice(nextCard, nextCard + 2)))
         setNextCard(nextCard + 3)
-    }
+    }*/
 
-    return ( 
-        <td style={deckStyle} key={this.props.id} onClick={this.props.onClick}>
-            {this.props.G.cells[this.props.id]}
-        </td>
+    return (
+        <div className='Deck' style={props.style}>
+            {activeCards.map((card, i) => (
+                <Card key={i} name={card.name} description={card.description} special={card.special}/>
+            ))}
+        </div>
     )
 }
 

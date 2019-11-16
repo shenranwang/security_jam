@@ -1,26 +1,14 @@
 import React from 'react';
 import Deck from './Deck';
+import cards from '../cards';
 
 const GameBoard = (props) => {
 
-  playerDeck = <Deck />
-  computerDeck = <Deck />
-
-  const onClick = (id) => {
-    if (isActive(id)) {
-      props.moves.clickCell(id);
-      props.events.endTurn();
-    }
-  }
-
-  const isActive = (id) => {
-    if (!props.isActive) return false;
-    if (props.G.cells[id] !== null) return false;
-    return true;
-  }
-  
   return (
-    null
+    <div>
+        <Deck cards = {cards}/>
+        <Deck style={{ marginTop: '200px' }} cards = {cards}/>
+    </div>
   )
   
 }
