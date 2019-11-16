@@ -12,7 +12,7 @@ const Deck = (props) => {
     return (
         <div className='Deck' style={props.style}>
             {activeCards.map((card, i) => (
-                <Card key={i} name={card.name} description={card.description} special={card.special}/>
+                <Card onClick={props.onClick} key={i} name={card.name} description={card.description} special={card.special}/>
             ))}
         </div>
     )

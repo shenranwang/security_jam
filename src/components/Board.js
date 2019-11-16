@@ -4,11 +4,16 @@ import cards from '../cards';
 
 const GameBoard = (props) => {
 
-  return (
-    <div>
-        <Deck style={{ marginTop: '200px' }} cards = {cards}/>
-    </div>
-  )
+    const onClick = (name) => {
+        if(cards.find(c => c.name == name)) {
+            props.events.endTurn()
+        }
+    }
+    return (
+        <div>
+            <Deck onClick={onClick} style={{ marginTop: '200px' }} cards = {cards}/>
+        </div>
+    )
   
 }
 

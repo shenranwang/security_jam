@@ -3,9 +3,13 @@ import '../App.css';
 
 const Card = (props) => {
     const [mouseOver, setMouseOver] = useState(false)
+    const onClick = () => {
+        props.onClick(props.name)
+        if(props.special) props.special(true)
+    }
     return (
         <div 
-            onClick={() => props.special ? props.special(true) : {}}
+            onClick={onClick}
             style={mouseOver ? { transform: 'scale(1.5)' } : {} } 
             className='Card'
             key={props.id}

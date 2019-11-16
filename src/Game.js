@@ -15,8 +15,7 @@ const Game = {
     },
     turn: {
         order: TurnOrder.DEFAULT
-    },
-    debug: false
+    }
 };
 
 export default Game
