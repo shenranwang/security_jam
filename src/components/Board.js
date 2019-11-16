@@ -1,6 +1,11 @@
 import React from 'react';
+import Deck from './Deck';
 
 class GameBoard extends React.Component {
+
+  playerDeck = <Deck />
+  computerDeck = <Deck />
+
   onClick(id) {
     if (this.isActive(id)) {
       this.props.moves.clickCell(id);
@@ -25,23 +30,13 @@ class GameBoard extends React.Component {
         );
     }
 
-    const cellStyle = {
-      border: '1px solid #555',
-      width: '50px',
-      height: '50px',
-      lineHeight: '50px',
-      textAlign: 'center',
-    };
-
     let tbody = [];
     for (let i = 0; i < 3; i++) {
       let cells = [];
       for (let j = 0; j < 3; j++) {
         const id = 3 * i + j;
         cells.push(
-          <td style={cellStyle} key={id} onClick={() => this.onClick(id)}>
-            {this.props.G.cells[id]}
-          </td>
+          <Card id={id} G={this.props.G} onClick={() => this.onClick(id)} />
         );
       }
       tbody.push(<tr key={i}>{cells}</tr>);
