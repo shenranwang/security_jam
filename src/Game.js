@@ -22,6 +22,16 @@ const Game = {
             mode: 'new'
         }
     },
+    endIf: (G, ctx) => {
+        if (G.player.health <= 0.0) {
+            alert('player loses')
+            return {winner: ctx.currentPlayer}
+        }
+        if (G.computer.health <= 0.0) {
+            alert('computer loses')
+            return {winner: ctx.currentPlayer}
+        }
+    },
     turn: {
         order: TurnOrder.DEFAULT
     }
