@@ -11,22 +11,12 @@ const GameBoard = (props) => {
     setHand(props.G.player.hand)
   }, [props.G.player.hand])
 
-  const switchTurn = (effect) => {
-//    if(effect) effect(props.G)
-    props.moves.clickCard(effect)
-    props.events.endTurn()
-}
-
-
 const consumeCard = () => {
-    props.G.player.hand = props.G.player.hand.filter(z => z.id !== chosenCard)
-    setHand(props.G.player.hand)
-}
-
-
-const consumeCard = () => {
-    props.G.player.hand = props.G.player.hand.filter(z => z.id !== chosenCard)
-    setHand(props.G.player.hand)
+  const effect = props.G.player.hand.find(z => z.id === chosenCard)[props.G.mode].effect
+  props.G.player.hand = props.G.player.hand.filter(z => z.id !== chosenCard)
+  setHand(props.G.player.hand)
+  props.moves.clickCard(effect)
+  props.events.endTurn()
 }
 
   return (

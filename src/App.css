@@ -47,6 +47,15 @@ light violet, dark
     cursor: pointer;
 
 }
+
+.card::-webkit-scrollbar {
+    display: none;
+  }
+  
+.card {
+    -ms-overflow-style: none;
+  }
+
 .card {
     display: flex;
     flex-direction: column;
@@ -57,6 +66,8 @@ light violet, dark
     bottom:0px;
     right: 0px;
     background-color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
 
 
     margin: 0 2.5px;
@@ -77,8 +88,7 @@ light violet, dark
 }
 .description {
     margin: 10px 0 0 0;
-    font-size: 12px;
-
+    font-size: 11px;
 }
 
 .cardImage {
