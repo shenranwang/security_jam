@@ -16,6 +16,19 @@ const GameBoard = (props) => {
         mod.duration--
     }
     player.modifiers = player.modifiers.filter(f => f.duration)
+    const index = Math.floor(Math.random() * Math.floor(5))
+    props.G.computer.cards[index][props.G.mode].effect(props.G)
+    props.events.endTurn()
+    const turn2 = props.G.turn
+    turn2 === 'player' ? props.G.turn = 'computer' : props.G.turn = 'player'
+    props.G.opponent = turn2
+    const player2 = props.G[props.G.turn]
+    player2.shield = 1.0
+    for(let mod of player.modifiers) {
+        player2[mod.attr] += mod.value 
+        mod.duration--
+    }
+    player2.modifiers = player2.modifiers.filter(f => f.duration)
 }
 
   return (
