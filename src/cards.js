@@ -109,8 +109,8 @@ const cards = [
             effects: 'Destroy a random card from the opponent\'s hand',
             effect: G => {
                 const opponent = G[G.opponent]
-                const r = Math.floor(Math.random() * opponent.cards.length)
-                opponent.cards = opponent.cards.filter((card, i) => i != r)
+                const r = Math.floor(Math.random() * opponent.hand.length)
+                opponent.hand = opponent.hand.filter((card, i) => i != r)
             } 
         },
         old: {

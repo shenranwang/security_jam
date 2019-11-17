@@ -13,7 +13,8 @@ const GameBoard = (props) => {
             if(card) {
                 const effect = card[props.G.mode].effect
                 props.moves.clickCard(effect)
-                props.G.player.hand = props.G.player.hand.filter(z => z.id !== chosenCard)
+                const b = props.G.player.hand.filter(z => z.id !== chosenCard).map(z => z)
+                props.G.player.hand = b
                 setHand(props.G.player.hand)
                 props.events.endTurn()
                 setChosenCard(null) 
