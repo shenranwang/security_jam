@@ -102,7 +102,7 @@ const cards = [
             }
         }
     },
-    {      
+/*     {      
         name: 'Infiltration',
         new: {
             description: 'Install a rootkit to your enemy computer',
@@ -121,7 +121,7 @@ const cards = [
                 apply: player => player.shield *= 0.7
             })
         }
-    },
+    }, */
     {
         name: 'Brute force',
         new: {
