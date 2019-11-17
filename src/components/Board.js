@@ -41,7 +41,7 @@ const GameBoard = (props) => {
             <div className='view'>
                 <img src='\images\OpponentNew.svg' style={{position:"absolute", zIndex:"2"}}></img>
                 <img src='\images\LeftMountains.svg' style={{position: 'absolute', left:"0px", zIndex:"1"}}></img>
-                <img src='\images\RightCity.png' style={{position: 'absolute', zIndex:'1'}}></img>
+                <img src='\images\RightCity.svg' style={{position: 'absolute', zIndex:'1'}}></img>
                 <div className='board' onClick={consumeCard}>
                     <img src='\images\BackgroundNew.png' style={{width:"100vw"}}></img>
                 </div>
