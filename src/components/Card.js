@@ -26,7 +26,7 @@ const Card = (props) => {
                 onMouseLeave={() => setMouseOver(false)}
                 >
                 
-                <img src={`/images/${props.name}.png`} className='cardImage' />
+                <img src={`/images/${props.name}_${props.mode}.jpg`} className='cardImage' />
                 
 
                 <div className='content'>

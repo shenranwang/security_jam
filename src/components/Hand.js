@@ -17,6 +17,7 @@ const Hand = (props) => {
             {props.hand.map((card, i) => (
                 <Card
                     onClick={props.onClick} 
+                    mode = {props.mode}
                     key={i} 
                     name={card.name} 
                     description={card[props.mode].description} 
