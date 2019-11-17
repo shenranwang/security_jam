@@ -2,7 +2,6 @@ import { Game } from "boardgame.io/dist/cjs/reducer-346fc670";
 
 const cards = [
     {
-
         name: 'Spam',
         new: {
             description: 'Filling your enemy’s mail with unnecessary messages',
@@ -14,17 +13,15 @@ const cards = [
             effects: 'Damage from morale loss',
             effect: G => G[G.opponent].health -= 3.0 / G[G.opponent].shield
         }
-
     },
     {
-        name: 'Security patch',
+        name: 'Security',
         new: {
             description: 'Improve your system defences by fixing security errors',
-            effects: '',
+            effects: 'Double your shield for 2 rounds',
             effect: G => G[G.turn].modifiers.push({
                 duration: 2,
-                attr: 'shield',
-                value: 1
+                apply: (player) => player.shield *= 2
             })
         },
         old: {
@@ -41,11 +38,10 @@ const cards = [
             effect: G => {
                 G[G.opponent].health -= 8 / G[G.opponent].shield
                 G[G.opponent].modifiers.push({
-                duration: 2,
-                attr: 'shield',
-                value: -0.3
-            })}
-            
+                    duration: 2,
+                    apply: player => player.shield *= 0.7
+                })
+            }
         },
         old: {
             description: 'An attack disguised as a gift',
@@ -53,10 +49,10 @@ const cards = [
             effect: G => {
                 G[G.opponent].health -= 8 / G[G.opponent].shield
                 G[G.opponent].modifiers.push({
-                duration: 2,
-                attr: 'shield',
-                value: -0.15
-            })}
+                    duration: 2,
+                    apply: player => player.shield *= 0.7
+                })
+            }
         }
     },
     {
@@ -66,9 +62,8 @@ const cards = [
             effects: 'Decreases target`s shield for three turns',
             effect: G => {
                 G[G.opponent].modifiers.push({
-                    duration: 3,
-                    attr: 'shield',
-                    value: -0.45
+                    duration: 5,
+                    apply: player => player.shield *= 0.9
                 })
             }
         },
@@ -78,8 +73,7 @@ const cards = [
             effect: G => {
                 G[G.opponent].modifiers.push({
                     duration: 3,
-                    attr: 'shield',
-                    value: -0.45
+                    apply: player => player.shield *= 0.9
                 })
             }
 
@@ -92,9 +86,8 @@ const cards = [
             effects: 'Decreases the infected computer’s HP. (Damage increases gradually) until the Virus is removed.',
             effects: G => {
                 G[G.opponent].modifiers.push({
-                    duration: 2,
-                    attr: 'health',
-                    value: -2
+                    duration: 4,
+                    apply: player => player.health -= 2
                 })
             }
         },
@@ -104,15 +97,46 @@ const cards = [
             effects: G => {
                 G[G.opponent].modifiers.push({
                     duration: 2,
-                    attr: 'health',
-                    value: -2
+                    apply: player => player.health -= 2
                 })
             }
-            
+        }
+    },
+    {      
+        name: 'Infiltration',
+        new: {
+            description: 'Install a rootkit to your enemy computer',
+            effects: 'Destroy a random card from the opponent\'s hand',
+            effect: G => {
+                const opponent = G[G.opponent]
+                const r = Math.floor(Math.random() * opponent.cards.length)
+                opponent.cards = opponent.cards.filter((card, i) => i != r)
+            } 
+        },
+        old: {
+            description: 'Corrupt the enemy mayor to lower the enemy morale',
+            effects: 'Weakens the opponent\'s shield by 30% for 3 turns',
+            effect: G => G[G.opponent].modifiers.push({
+                duration: 3,
+                apply: player => player.shield *= 0.7
+            })
+        }
+    },
+    {
+        name: 'Brute force',
+        new: {
+            description: 'Try all possible combinations of enemy\'s passwords. ...Or at least a lot of them.',
+            effects: 'Depending on the enemy\'s shield, a chance to steal 2 cards from the enemy',
+            effect: G => {
+                const r = Math.random() * G[G.opponent].shield
+            }
+        },
+        old: {
+            description: 'Launch a large scale attack on the enemy',
+            effects: 'Take 5 health and lower shield by 30% for 2 rounds',
+            effect: G => console.log('myötistä')
         }
     }
-
-
 ]
 
 export default cards

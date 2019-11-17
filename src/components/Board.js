@@ -12,7 +12,7 @@ const GameBoard = (props) => {
     const player = props.G[props.G.turn]
     player.shield = 1.0
     for(let mod of player.modifiers) {
-        player[mod.attr] += mod.value 
+        mod.apply(player) 
         mod.duration--
     }
     player.modifiers = player.modifiers.filter(f => f.duration)
@@ -21,23 +21,9 @@ const GameBoard = (props) => {
   return (
     <div>
       <div className='view'>
-        <div className='helper'>
-          <img src='/images/llama.png' style={{width:"250px", right:"0px"}}></img>
-        </div>
-
-
         <div className='board'>
           <img src='\images\hearthstoneboard.jpg' style={{width:"100vw"}}></img>
-          <div className='enemy'>
-              <img src='\images\opponent-old.png' style={{width:"200px"}}></img>
-          </div>
         </div>
-
-          
-
-         
-          
-            
           <div className='bottomBar'>
             <img className='healthJug' src="/images/health4.png"></img>
 
