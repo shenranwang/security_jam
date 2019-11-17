@@ -110,7 +110,7 @@ const cards = [
             effect: G => {
                 const opponent = G[G.opponent]
                 const r = Math.floor(Math.random() * opponent.hand.length)
-                opponent.cards = opponent.cards.filter((card, i) => i != r)
+                opponent.hand = opponent.hand.filter((card, i) => i != r)
             } 
         },
         old: {
