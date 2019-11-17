@@ -16,9 +16,21 @@ const GameBoard = (props) => {
                 props.G.player.hand = props.G.player.hand.filter(z => z.id !== chosenCard)
                 setHand(props.G.player.hand)
                 props.events.endTurn()
-                setChosenCard(null) 
+                setChosenCard(null)
+                const id = Math.floor(Math.random() * props.G.computer.cards.length)
+                computerMove(id) 
             }
         }
+    }
+
+    const computerMove = (id) => {
+      const card = props.G.computer.hand.find(z => z.id === id)
+      if(card) {
+        console.log(card)
+        const effect = card[props.G.mode].effect
+        props.moves.clickCard(effect)
+        props.events.endTurn()
+      }
     }
 
     return (
