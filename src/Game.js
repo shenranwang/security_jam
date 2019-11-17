@@ -1,17 +1,21 @@
 import { TurnOrder } from "boardgame.io/dist/cjs/reducer-346fc670";
 import cards from './cards'
 
-const deliverCard = () => {
+/* const deliverCard = () => {
     const index = Math.floor(Math.random() * cards.length)
     const card = Object.assign({}, cards[index])
     card.id = Math.floor(Math.random() * 1297831)
     return card
-}
+} */
 
 const initializeHand = () => {
     let b = []
-    for (var i=0; i < 3; i++){
+/*     for (var i=0; i < 3; i++){
         b.push(deliverCard())
+    } */
+    for (let card of cards) {
+        card.id = Math.floor(Math.random() * 1297831)
+        b.push(card)
     }
     return b
 }

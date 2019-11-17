@@ -6,24 +6,32 @@ const GameBoard = (props) => {
 
     const [chosenCard, setChosenCard] = useState(null)
     const [hand, setHand] = useState(props.G.player.hand)
+    const [healthImagePath, setHealthImagePath] = useState("/images/HealthNew4.png")
 
     const consumeCard = () => {
-      console.log("con")
+      console.log(hand)
         if(chosenCard) {
-          
           console.log(props.G.player.hand)
           const card = props.G.player.hand.find(z => z.id === chosenCard)
           if(card) {
             const effect = card[props.G.mode].effect
             props.moves.clickCard(effect)
-            const b = props.G.player.hand.filter(z => z.id !== chosenCard)
+            checkHealth()
+/*             const b = props.G.player.hand.filter(z => z.id !== chosenCard)
             props.G.player.hand = b
-            setHand(props.G.player.hand)
+            setHand(props.G.player.hand) */
             props.events.endTurn()
             setChosenCard(null)
             computerMove()
           }
         }
+    }
+
+    const checkHealth = () => {
+      if (props.G.computer.health >= 25) setHealthImagePath("/images/HealthNew4.png")
+      else if (props.G.computer.health >= 17) setHealthImagePath("/images/HealthNew3.png")
+      else if (props.G.computer.health >= 9) setHealthImagePath("/images/HealthNew2.png")
+      else setHealthImagePath("/images/HealthNew1.png")
     }
 
     const computerMove = () => {
@@ -49,7 +57,7 @@ const GameBoard = (props) => {
                    <img className='rightCity' src='\images\RightCity.svg' style={{position: 'absolute'}}></img>
                 </div>
                 <div className='bottomBar'>
-                    <img className='healthJug' src="/images/health4.png"></img>
+                    <img className='healthJug' src={healthImagePath}></img>
 
                     <Hand mode={props.G.mode} onClick={(id) => setChosenCard(id)} className='hand' hand={hand}/>
                 </div>
