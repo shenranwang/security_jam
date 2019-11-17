@@ -10,6 +10,7 @@ const Card = (props) => {
     const [mouseOver, setMouseOver] = useState(false)
     const onClick = () => {
         props.onClick(props.id)
+        console.log("test")
     }
     return (
         <div    className='cardWrapper'
