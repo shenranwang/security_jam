@@ -23,6 +23,12 @@ const consumeCard = () => {
     setHand(props.G.player.hand)
 }
 
+
+const consumeCard = () => {
+    props.G.player.hand = props.G.player.hand.filter(z => z.id !== chosenCard)
+    setHand(props.G.player.hand)
+}
+
   return (
     <div>
       <div className='view'>
