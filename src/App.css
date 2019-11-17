@@ -36,17 +36,9 @@ light violet, dark
 
 
 .cardWrapper {
-    width: 150px;
-    height: 200px;
-    position: relative;
-}
-.border {
-    position: absolute;
-    left: 0px;
-    z-index: -1;
-}
+    margin: 0 5px;
 
-
+}
 .enemy {
     position: absolute;
     top: 0px;
@@ -56,13 +48,12 @@ light violet, dark
 
 }
 
-.content::-webkit-scrollbar {
+.card::-webkit-scrollbar {
     display: none;
   }
   
-.content {
+.card {
     -ms-overflow-style: none;
-    overflow: auto;
   }
 
 .card {
@@ -85,11 +76,11 @@ light violet, dark
     cursor: pointer;
 }
 .content {
-    width: 130x;
+    top:0px;
+}
+.text {
     padding: 10px;
 }
-
-
 .header {
     font-size: 16px;
     font-weight: 700;
@@ -100,9 +91,9 @@ light violet, dark
 }
 
 .cardImage {
-    height: auto;
-    width:130px;
-    z-index:1;
+    top:-50px;
+    right: 5px;
+    height: 160px;
 }
 .imageBorder {
     right: 0px;
@@ -112,6 +103,7 @@ light violet, dark
     right: 0px;
     border: 3px solid #B200B7;
 }
+
 
 .bottomBar {
     display: flex;

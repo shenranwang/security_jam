@@ -13,7 +13,7 @@ const Card = (props) => {
     }
     return (
         <div className='cardWrapper'>
-            <img src='/images/CardNew.png' className='border'></img>
+            <img src='/images/CardNew.pngg' className='border'></img>
             <div 
                 onClick={onClick}
                 style={mouseOver ? { 
