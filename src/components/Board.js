@@ -8,6 +8,8 @@ const GameBoard = (props) => {
     const [hand, setHand] = useState(props.G.player.hand)
     const [healthImagePath, setHealthImagePath] = useState("/images/HealthNew4.png")
 
+    var audio = new Audio('./music/music.mp3');
+    audio.play();
     const consumeCard = () => {
       console.log(hand)
         if(chosenCard) {
