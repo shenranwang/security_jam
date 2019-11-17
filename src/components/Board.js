@@ -35,9 +35,8 @@ const GameBoard = (props) => {
     }
 
     const computerMove = () => {
-      console.log(props.G.computer.hand.length)
-      const id = Math.floor(Math.random() * props.G.computer.hand.length)
-      const card = props.G.computer.hand[id]
+      const id = Math.floor(Math.random() * cards.length)
+      const card = cards[id]
       if (card) {
         console.log(card)
         const effect = card[props.G.mode].effect
