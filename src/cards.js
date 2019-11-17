@@ -84,7 +84,7 @@ const cards = [
         new:{
             description: 'Virus is a harmful program that is capable of copying itself and spreading to other computers.',
             effects: 'Decreases the infected computer’s HP. (Damage increases gradually) until the Virus is removed.',
-            effects: G => {
+            effect: G => {
                 G[G.opponent].modifiers.push({
                     duration: 4,
                     apply: player => player.health -= 2
@@ -94,7 +94,7 @@ const cards = [
         old:{
             description: 'Use biological means to weaken your opponent.',
             effects: 'Decreases the infected computer’s HP. (Damage increases gradually) until the Virus is removed.',
-            effects: G => {
+            effect: G => {
                 G[G.opponent].modifiers.push({
                     duration: 2,
                     apply: player => player.health -= 2
