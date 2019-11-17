@@ -28,10 +28,10 @@ const GameBoard = (props) => {
     }
 
     const checkHealth = () => {
-      if (props.G.computer.health >= 25) setHealthImagePath("/images/HealthNew4.png")
-      else if (props.G.computer.health >= 17) setHealthImagePath("/images/HealthNew3.png")
-      else if (props.G.computer.health >= 9) setHealthImagePath("/images/HealthNew2.png")
-      else setHealthImagePath("/images/HealthNew1.png")
+      if (props.G.computer.health >= 25) setHealthImagePath("/images/HealthNew4.svg")
+      else if (props.G.computer.health >= 17) setHealthImagePath("/images/HealthNew3.svg")
+      else if (props.G.computer.health >= 9) setHealthImagePath("/images/HealthNew2.svg")
+      else setHealthImagePath("/images/HealthNew1.svg")
     }
 
     const computerMove = () => {
@@ -51,7 +51,7 @@ const GameBoard = (props) => {
             
                 <div className='board' onClick={consumeCard}>
                    <img src='\images\BackgroundNew.png' style={{width:"100vw",position:"absolute"}}></img>
-                   <img className='rightCity'src='\images\OpponentNew.svg' style={{position:"absolute"}}></img>
+                   <img className='enemy'src='\images\OpponentNew.svg'></img>
                    <img className='leftMountains'src='\images\LeftMountains.svg' style={{position: 'absolute'}}></img>
                    <img className='rightCity' src='\images\RightCity.svg' style={{position: 'absolute'}}></img>
                 </div>
