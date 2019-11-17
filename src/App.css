@@ -110,6 +110,8 @@ light violet, dark
 .bottomBar {
     display: flex;
     direction: row;
+    position: relative;
+    z-index: 4;
     height:30vh;
 }
 .healthJug {
