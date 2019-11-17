@@ -32,6 +32,35 @@ const Game = {
             mode: 'new'
         }
     },
+    moves: {
+        clickCard: (G, ctx, effect) => {
+            effect(G)
+            const turn = G.turn
+            turn === 'player' ? G.turn = 'computer' : G.turn = 'player'
+            G.opponent = turn
+            const player = G[G.turn]
+            player.shield = 1.0
+            for(let mod of player.modifiers) {
+                mod.apply(player) 
+                mod.duration--
+            }
+            player.modifiers = player.modifiers.filter(f => f.duration)
+/*             const index = Math.floor(Math.random() * G.computer.cards.length)
+            console.log(G.mode)
+            G.computer.cards[index][G.mode].effect(G)
+            events.endTurn()
+            const turn2 = G.turn
+            turn2 === 'player' ? G.turn = 'computer' : G.turn = 'player'
+            G.opponent = turn2
+            const player2 = G[G.turn]
+            player2.shield = 1.0
+            for(let mod of player2.modifiers) {
+                player2[mod.attr] += mod.value 
+                mod.duration--
+            }
+            player2.modifiers = player2.modifiers.filter(f => f.duration) */
+        }
+    },
     endIf: (G, ctx) => {
         if (G.player.health <= 0.0) {
             alert('player loses')
@@ -43,7 +72,8 @@ const Game = {
         }
     },
     turn: {
-        order: TurnOrder.DEFAULT
+        order: TurnOrder.DEFAULT,
+        moveLimit: 1
     }
 };
 
