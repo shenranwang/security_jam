@@ -26,7 +26,7 @@ const consumeCard = () => {
           <img src='\images\hearthstoneboard.jpg' style={{width:"100vw"}}></img>
         </div>
           <div className='bottomBar'>
-            <img className='healthJug' src="/images/health4.png"></img>
+            <img className='healthJug' src="/images/health1.png"></img>
 
             <Hand mode={props.G.mode} onClick={(id) => setChosenCard(id)} className='hand' hand={hand}/>
           </div>
