@@ -9,8 +9,7 @@ import '../App.css';
 const Card = (props) => {
     const [mouseOver, setMouseOver] = useState(false)
     const onClick = () => {
-        props.onClick(props.effect)
-        if(props.special) props.special(true)
+        props.onClick(props.id)
     }
     return (
         <div className='cardWrapper'>
