@@ -9,24 +9,26 @@ const GameBoard = (props) => {
 
     const consumeCard = () => {
         if(chosenCard) {
-            const card = props.G.player.hand.find(z => z.id === chosenCard)
-            if(card) {
-                const effect = card[props.G.mode].effect
-                props.moves.clickCard(effect)
-                const b = props.G.player.hand.filter(z => z.id !== chosenCard).map(z => z)
-                props.G.player.hand = b
-                setHand(props.G.player.hand)
-                props.events.endTurn()
-                setChosenCard(null)
-                const id = Math.floor(Math.random() * props.G.computer.cards.length)
-                computerMove(id) 
-            }
+          console.log(props.G.player.hand)
+          const card = props.G.player.hand.find(z => z.id === chosenCard)
+          if(card) {
+            const effect = card[props.G.mode].effect
+            props.moves.clickCard(effect)
+            const b = props.G.player.hand.filter(z => z.id !== chosenCard)
+            props.G.player.hand = b
+            setHand(props.G.player.hand)
+            props.events.endTurn()
+            setChosenCard(null)
+            computerMove()
+          }
         }
     }
 
-    const computerMove = (id) => {
-      const card = props.G.computer.hand.find(z => z.id === id)
-      if(card) {
+    const computerMove = () => {
+      console.log(props.G.computer.hand.length)
+      const id = Math.floor(Math.random() * props.G.computer.hand.length)
+      const card = props.G.computer.hand[id]
+      if (card) {
         console.log(card)
         const effect = card[props.G.mode].effect
         props.moves.clickCard(effect)
