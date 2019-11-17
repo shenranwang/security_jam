@@ -6,7 +6,7 @@ const GameBoard = (props) => {
 
     const [chosenCard, setChosenCard] = useState(null)
     const [hand, setHand] = useState(props.G.player.hand)
-    const [healthImagePath, setHealthImagePath] = useState("/images/HealthNew4.png")
+    const [healthImagePath, setHealthImagePath] = useState("/images/HealthNew4.svg")
 
     var audio = new Audio('./music/music.mp3');
     audio.play();
