@@ -43,10 +43,10 @@ const GameBoard = (props) => {
             <div className='view'>
             
                 <div className='board' onClick={consumeCard}>
-                   <img src='\images\BackgroundNew.png' style={{position:"absolute"}}></img>
-                   <img src='\images\OpponentNew.svg' style={{position:"absolute"}}></img>
-                   <img src='\images\LeftMountains.svg' style={{position: 'absolute'}}></img>
-                   <img src='\images\RightCity.svg' style={{position: 'absolute'}}></img>
+                   <img src='\images\BackgroundNew.png' style={{width:"100vw",position:"absolute"}}></img>
+                   <img className='rightCity'src='\images\OpponentNew.svg' style={{position:"absolute"}}></img>
+                   <img className='leftMountains'src='\images\LeftMountains.svg' style={{position: 'absolute'}}></img>
+                   <img className='rightCity' src='\images\RightCity.svg' style={{position: 'absolute'}}></img>
                 </div>
                 <div className='bottomBar'>
                     <img className='healthJug' src="/images/health4.png"></img>
