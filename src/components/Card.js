@@ -13,7 +13,7 @@ const Card = (props) => {
     }
     return (
         <div className='cardWrapper'>
-            
+            <img src='/images/CardNew.png' className='border'></img>
             <div 
                 onClick={onClick}
                 style={mouseOver ? { 
@@ -29,8 +29,7 @@ const Card = (props) => {
                 <img src={`/images/${props.name}_${props.mode}.jpg`} className='cardImage' />
                 
 
-                <div className='content'>
-                    <div className='imageBorder'></div>
+                <div className='content'>                    
                     <div className='text'>
                         <div className='header'>{props.name}</div>
                         { mouseOver ? 

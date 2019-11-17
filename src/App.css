@@ -36,9 +36,17 @@ light violet, dark
 
 
 .cardWrapper {
-    margin: 0 5px;
-
+    width: 150px;
+    height: 200px;
+    position: relative;
 }
+.border {
+    position: absolute;
+    left: 0px;
+    z-index: 3;
+}
+
+
 .enemy {
     position: absolute;
     top: 0px;
@@ -93,9 +101,8 @@ light violet, dark
 
 .cardImage {
     position: absolute;
-    top:-50px;
-    right: 5px;
-    height: 160px;
+    height: auto;
+    width:130px;
     z-index:1;
 }
 .imageBorder {
