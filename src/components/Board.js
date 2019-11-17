@@ -8,7 +8,9 @@ const GameBoard = (props) => {
     const [hand, setHand] = useState(props.G.player.hand)
 
     const consumeCard = () => {
+      console.log("con")
         if(chosenCard) {
+          
           console.log(props.G.player.hand)
           const card = props.G.player.hand.find(z => z.id === chosenCard)
           if(card) {
@@ -39,11 +41,12 @@ const GameBoard = (props) => {
     return (
         <div>
             <div className='view'>
-                <img src='\images\OpponentNew.svg' style={{position:"absolute", zIndex:"2"}}></img>
-                <img src='\images\LeftMountains.svg' style={{position: 'absolute', left:"0px", zIndex:"1"}}></img>
-                <img src='\images\RightCity.png' style={{position: 'absolute', zIndex:'1'}}></img>
+            
                 <div className='board' onClick={consumeCard}>
-                    <img src='\images\BackgroundNew.png' style={{width:"100vw"}}></img>
+                   <img src='\images\BackgroundNew.png' style={{width:"100vw",position:"absolute"}}></img>
+                   <img className='rightCity'src='\images\OpponentNew.svg' style={{position:"absolute"}}></img>
+                   <img className='leftMountains'src='\images\LeftMountains.svg' style={{position: 'absolute'}}></img>
+                   <img className='rightCity' src='\images\RightCity.svg' style={{position: 'absolute'}}></img>
                 </div>
                 <div className='bottomBar'>
                     <img className='healthJug' src="/images/health4.png"></img>

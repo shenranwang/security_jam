@@ -10,20 +10,11 @@ light violet, dark
     box-sizing: border-box;
     width: 100vw;
     height: 70vh;
+    z-index: -1;
 }
 .enemy {
     margin: auto;
 }
-
-
-
-
-
-
-
-
-
-
 
 .view {
     position: relative;
@@ -37,58 +28,60 @@ light violet, dark
 
 .cardWrapper {
     width: 150px;
-    height: 200px;
+    height: 220px;
     position: relative;
+    cursor: pointer;
 }
 .border {
     position: absolute;
     left: 0px;
-    z-index: -1;
+    top:0px;
 }
 
 
 .enemy {
     position: absolute;
     top: 0px;
-    z-index: 5;
+    z-index: 2;
     left: 40vw;
     cursor: pointer;
 
 }
 
-.content::-webkit-scrollbar {
-    display: none;
-  }
-  
-.content {
-    -ms-overflow-style: none;
-    overflow: auto;
-  }
+
 
 .card {
     display: flex;
     flex-direction: column;
-    position: relative;
     box-sizing: border-box;
     height:200px;
     width: 130px;
-    bottom:0px;
-    right: 0px;
-    background-color: white;
+ 
+    position: absolute;
+    left:10px;
+    top: 10px;
+    
     overflow-y: auto;
     overflow-x: hidden;
 
+    
+    background: rgb(2,0,36);
+    background: linear-gradient(-25deg, rgba(2,0,36,1) 0%, rgba(119,5,120,1) 100%, rgba(0,212,255,1) 100%);
 
-    margin: 0 2.5px;
-    box-shadow: 3px 3px 8px #770578;
 
-    cursor: pointer;
+    
 }
 .content {
-    width: 130x;
+    box-sizing: border-box;
+    width: 130px;
     padding: 10px;
+    color: white;
+    -ms-overflow-style: none;
+    overflow: auto;
 }
-
+.content::-webkit-scrollbar {
+    display: none;
+}
 
 .header {
     font-size: 16px;
@@ -99,25 +92,18 @@ light violet, dark
     font-size: 11px;
 }
 
+
 .cardImage {
     height: auto;
     width:130px;
-    z-index:1;
 }
-.imageBorder {
-    right: 0px;
-    top:50px;
-    height: 75px;
-    width:130px;
-    right: 0px;
-    border: 3px solid #B200B7;
-}
+
 
 .bottomBar {
     display: flex;
     direction: row;
     position: relative;
-    z-index: 4;
+    z-index: 3;
     height:30vh;
 }
 .healthJug {
@@ -133,13 +119,4 @@ light violet, dark
     padding: 0 5px;
     background-color: transparent;
     width: 60%;
-}
-.helper {
-    position:absolute;
-    right: 0px;
-    bottom: 200px;
-    width: 200px;
-    height: 300px;
-    background-color: antiquewhite;
-    z-index: 2;
 }
