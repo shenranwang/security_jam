@@ -44,12 +44,12 @@ const GameBoard = (props) => {
             
                 <div className='board' onClick={consumeCard}>
                    <img src='\images\BackgroundNew.png' style={{width:"100vw",position:"absolute"}}></img>
-                   <img className='rightCity'src='\images\OpponentNew.svg' style={{position:"absolute"}}></img>
+                   <img className='enemy'src='\images\OpponentNew.svg'></img>
                    <img className='leftMountains'src='\images\LeftMountains.svg' style={{position: 'absolute'}}></img>
                    <img className='rightCity' src='\images\RightCity.svg' style={{position: 'absolute'}}></img>
                 </div>
                 <div className='bottomBar'>
-                    <img className='healthJug' src="/images/health4.png"></img>
+                    <img className='healthJug' src="/images/HealthNew4.svg"></img>
 
                     <Hand mode={props.G.mode} onClick={(id) => setChosenCard(id)} className='hand' hand={hand}/>
                 </div>
